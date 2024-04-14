@@ -16,7 +16,7 @@ import Sectiontitle from "../../../components/Sectiontitle/Sectiontitle";
 
 const Gallery = () => {
   return (
-    <section>
+    <section className="mt-24">
       <Sectiontitle heading={"Graduates group pictures"}></Sectiontitle>
       <Swiper
         slidesPerView={1.5}
@@ -26,7 +26,7 @@ const Gallery = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper mb-24"
+        className="mySwiper mb-10"
       >
         <SwiperSlide>
           <img src={slide1} alt="" />
