@@ -1,0 +1,43 @@
+[
+    {
+      "_id": "1",
+      "userName": "Alice",
+      "img": "https://randomuser.me/api/portraits/women/1.jpg",
+      "collegeName": "Harvard University",
+      "rating": 4,
+      "comment": "I really enjoyed my time at Harvard University. The professors were engaging and the campus atmosphere was lively."
+    },
+    {
+      "_id": "2",
+      "userName": "Bob",
+      "img": "https://randomuser.me/api/portraits/men/2.jpg",
+      "collegeName": "Massachusetts Institute of Technology (MIT)",
+      "rating": 5,
+      "comment": "MIT exceeded my expectations in every way. The facilities were top-notch and the faculty was incredibly supportive."
+    },
+    {
+      "_id": "3",
+      "userName": "Charlie",
+      "img": "https://randomuser.me/api/portraits/men/3.jpg",
+      "collegeName": "Stanford University",
+      "rating": 3,
+      "comment": "Stanford University had its ups and downs. While some professors were excellent, others seemed disinterested."
+    },
+    {
+      "_id": "4",
+      "userName": "Diana",
+      "img": "https://randomuser.me/api/portraits/women/4.jpg",
+      "collegeName": "California Institute of Technology (Caltech)",
+      "rating": 2,
+      "comment": "I had a terrible experience at Caltech. The administration was unresponsive and the facilities were outdated."
+    },
+    {
+      "_id": "5",
+      "userName": "Eve",
+      "img": "https://randomuser.me/api/portraits/women/5.jpg",
+      "collegeName": "Yale University",
+      "rating": 4,
+      "comment": "Yale University provided a great learning environment. The campus was beautiful and the courses were challenging."
+    }
+  ]
+  
