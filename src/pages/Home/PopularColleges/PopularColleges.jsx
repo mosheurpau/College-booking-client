@@ -10,7 +10,7 @@ const PopularColleges = () => {
   return (
     <section className="my-20">
       <Sectiontitle heading="Popular colleges"></Sectiontitle>
-      <div className="grid grid-cols-3 gap-4 mt-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-14">
         {topColleges.map((topCollege) => (
           <CollegeCard
             key={topCollege._id}
