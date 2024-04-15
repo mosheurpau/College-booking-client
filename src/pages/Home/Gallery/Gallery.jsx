@@ -19,7 +19,7 @@ const Gallery = () => {
     <section className="mt-24">
       <Sectiontitle heading={"Graduates group pictures"}></Sectiontitle>
       <Swiper
-        slidesPerView={1.5}
+        slidesPerView={1.4}
         spaceBetween={20}
         centeredSlides={true}
         pagination={{
@@ -29,49 +29,59 @@ const Gallery = () => {
         className="mySwiper mb-10"
       >
         <SwiperSlide>
-          <img src={slide1} alt="" />
-          <h2
-            style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
-            className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
-          >
-            Blue Horizon College
-          </h2>
+          <div className="my-8">
+            <img src={slide1} alt="" />
+            <h2
+              style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
+              className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
+            >
+              Blue Horizon College
+            </h2>
+          </div>{" "}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide2} alt="" />
-          <h2
-            style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
-            className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
-          >
-            Crescent Valley University
-          </h2>
+          <div className="my-8">
+            <img src={slide2} alt="" />
+            <h2
+              style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
+              className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
+            >
+              Crescent Valley University
+            </h2>
+          </div>{" "}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide3} alt="" />
-          <h2
-            style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
-            className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
-          >
-            Harmony Institute of Technology
-          </h2>
+          <div className="my-8">
+            <img src={slide3} alt="" />
+            <h2
+              style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
+              className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
+            >
+              Harmony Institute of Technology
+            </h2>
+          </div>{" "}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide4} alt="" />
-          <h2
-            style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
-            className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
-          >
-            Summit College
-          </h2>
+          <div className="my-8">
+            <img src={slide4} alt="" />
+            <h2
+              style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
+              className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
+            >
+              Summit College
+            </h2>
+          </div>{" "}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide5} alt="" />
-          <h2
-            style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
-            className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
-          >
-            Evergreen University
-          </h2>
+          <div className="my-8">
+            <img src={slide5} alt="" />
+            <h2
+              style={{ textShadow: "0 0 3px #0000FF, 0 0 5px #0000FF" }}
+              className="bg-black opacity-70 text-white text-sm md:text-3xl text-center font-bold py-2 px-4"
+            >
+              Evergreen University
+            </h2>
+          </div>{" "}
         </SwiperSlide>
       </Swiper>
     </section>

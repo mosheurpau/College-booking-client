@@ -74,8 +74,7 @@ const Footer = () => {
       <div className="footer footer-center p-4 bg-base-300 text-base-content">
         <aside>
           <p>
-            Copyright © {currentYear} - All right reserved by ACME Industries
-            Ltd
+            Copyright © {currentYear} - All right reserved by Mosheur Rahman
           </p>
         </aside>
       </div>

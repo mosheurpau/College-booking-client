@@ -7,7 +7,14 @@ import img4 from "../../../assets/college-img/4.jpg";
 
 const Banner = () => {
   return (
-    <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
+    <Carousel
+      autoPlay
+      interval={3000}
+      infiniteLoop
+      showStatus={false}
+      thumbWidth={80}
+      thumbHeight={50}
+    >
       <div>
         <img src={img1} alt="Banner 1" />
       </div>

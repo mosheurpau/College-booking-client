@@ -27,7 +27,7 @@ const Reviews = () => {
                 value={review.rating}
                 readOnly
               />
-              <img className="my-4 rounded w-50 h-50" src={review.img} alt="" />
+              <img className="my-6 rounded w-50 h-50" src={review.img} alt="" />
               <p className="mb-4">{review.comment}</p>
 
               <h2 className="text-lg font-bold">{review.collegeName}</h2>

@@ -1,0 +1,102 @@
+[
+    {
+      "_id": "1",
+      "college_img": "https://i.ibb.co/7YHS74y/college1.jpg",
+      "college_name": "Harvard College",
+      "college_rating": 5,
+      "category": "popular", 
+      "admission_date": "2024-09-01",
+      "research_count": 120,
+      "events": ["Harvard-Yale Regatta", "Commencement", "Ivy League Championships"],
+      "sports_facilities": ["Swimming Pool", "Basketball Court", "Gym"]
+    },
+    {
+      "_id": "2",
+      "college_img": "https://i.ibb.co/KhqcmHb/college2.jpg",
+      "college_name": "Stanford College",
+      "college_rating": 4.6,
+      "category": "popular", 
+      "admission_date": "2024-08-15",
+      "research_count": 90,
+      "events": ["Big Game", "Cardinal Nights", "Wacky Walk"],
+      "sports_facilities": ["Tennis Court", "Football Field", "Running Track"]
+    },
+    {
+      "_id": "3",
+      "college_img": "https://i.ibb.co/hcjm0TF/college3.jpg",
+      "college_name": "MIT College",
+      "college_rating": 4.9,
+      "category": "popular", 
+      "admission_date": "2024-09-20",
+      "research_count": 150,
+      "events": ["HackMIT", "SpringFest", "CPW (Campus Preview Weekend)"],
+      "sports_facilities": ["Soccer Field", "Volleyball Court", "Fitness Center"]
+    },
+    {
+      "_id": "4",
+      "college_img": "https://i.ibb.co/qWFfWsS/college4.jpg",
+      "college_name": "Caltech College",
+      "college_rating": 4.7,
+      "category": "none", 
+      "admission_date": "2024-07-25",
+      "research_count": 80,
+      "events": ["Ditch Day", "Millikan Dinner", "Waverly Stomp"],
+      "sports_facilities": ["Badminton Court", "Hiking Trail", "Indoor Arena"]
+    },
+    {
+      "_id": "5",
+      "college_img": "https://i.ibb.co/zxsy9CR/college5.jpg",
+      "college_name": "Princeton College",
+      "college_rating": 4.6,
+      "category": "none", 
+      "admission_date": "2024-08-10",
+      "research_count": 100,
+      "events": ["P-Rade", "Lawnparties", "Princeton Preview"],
+      "sports_facilities": ["Cycling Track", "Squash Court", "Table Tennis Room"]
+    },
+    {
+      "_id": "6",
+      "college_img": "https://i.ibb.co/nfJYWjk/college6.jpg",
+      "college_name": "Yale College",
+      "college_rating": 4.4,
+      "category": "none", 
+      "admission_date": "2024-09-05",
+      "research_count": 130,
+      "events": ["Spring Fling", "The Game", "Yale-Harvard Regatta"],
+      "sports_facilities": ["Racquetball Court", "Bowling Alley", "Boxing Gym"]
+    },
+    {
+      "_id": "7",
+      "college_img": "https://i.ibb.co/ZWjhY4V/college7.jpg",
+      "college_name": "Chicago College",
+      "college_rating": 4.3,
+      "category": "none", 
+      "admission_date": "2024-08-30",
+      "research_count": 160,
+      "events": ["Scav Hunt", "Kuvia", "Latke-Hamantash Debate"],
+      "sports_facilities": ["Ice Skating Rink", "Rock Climbing Wall", "Martial Arts Dojo"]
+    },
+    {
+      "_id": "8",
+      "college_img": "https://i.ibb.co/58XRCH7/college8.jpg",
+      "college_name": "Columbia College",
+      "college_rating": 4.2,
+      "category": "none", 
+      "admission_date": "2024-07-15",
+      "research_count": 70,
+      "events": ["Bacchanal", "Homecoming", "Columbia University Film Festival"],
+      "sports_facilities": ["Archery Range", "Fencing Room", "Yoga Studio"]
+    },
+    {
+      "_id": "9",
+      "college_img": "https://i.ibb.co/yNwF4Ns/college9.jpg",
+      "college_name": "Brown College",
+      "college_rating": 4.1,
+      "category": "none", 
+      "admission_date": "2024-09-10",
+      "research_count": 110,
+      "events": ["Spring Weekend", "Campus Dance", "Organic Chemist's Holiday"],
+      "sports_facilities": ["Trampoline Park", "Surfing Simulator", "Water Polo Pool"]
+    }
+  ]
+  
