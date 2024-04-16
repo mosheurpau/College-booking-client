@@ -7,6 +7,7 @@ import {
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -53,7 +54,9 @@ const Login = () => {
 
   return (
     <>
-      <title>College Booking | Login</title>
+      <Helmet>
+        <title>College Booking | Login</title>
+      </Helmet>
 
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col md:flex-row-reverse">
