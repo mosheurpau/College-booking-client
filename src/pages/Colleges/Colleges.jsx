@@ -16,8 +16,8 @@ const Colleges = () => {
         <div className="hero-overlay bg-opacity-60  "></div>
 
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md py-4">
-            <h1 className="text-2xl font-bold border-y-2 py-4 px-4 text-white">
+          <div className="max-w-md py-4 md:py-14">
+            <h1 className="text-2xl md:text-4xl font-bold border-y-2 py-4 px-4 text-white">
               Comprehensive List of Colleges
             </h1>
             <p className="mt-5 mx-4 text-white">

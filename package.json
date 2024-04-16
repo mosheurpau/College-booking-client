@@ -13,14 +13,18 @@
     "@egjs/flicking": "^4.11.2",
     "@egjs/react-flicking": "^4.11.2",
     "@smastrom/react-rating": "^1.5.0",
+    "firebase": "^10.11.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.3",
+    "react-simple-captcha": "^9.3.1",
     "sort-by": "^1.2.0",
-    "swiper": "^11.1.1"
+    "sweetalert2": "^11.10.7",
+    "swiper": "^11.1.1",
+    "use-axios": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
