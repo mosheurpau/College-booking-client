@@ -43,7 +43,7 @@ const SignUp = () => {
         <title>College Booking | Sign Up</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col lg:flex-row-reverse mx-auto">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Sign up now!</h1>
             <p className="py-6">
@@ -130,9 +130,9 @@ const SignUp = () => {
                   </p>
                 )}
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <Link to="/reset" className="label-text-alt link link-hover">
                     Forgot password?
-                  </a>
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
