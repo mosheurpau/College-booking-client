@@ -22,7 +22,7 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
+          console.log("User profile info updated");
           reset();
           Swal.fire({
             position: "top-end",

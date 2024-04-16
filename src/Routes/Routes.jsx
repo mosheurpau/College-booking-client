@@ -5,6 +5,8 @@ import Colleges from "../pages/Colleges/Colleges";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import Reset from "../pages/Reset/Reset";
+import CollegeDetails from "../Shared/CollegeDetails/CollegeDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
       {
         path: "reset",
         element: <Reset></Reset>,
+      },
+      {
+        path: "collegeDetails",
+        element: (
+          <PrivateRoute>
+            <CollegeDetails></CollegeDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },
