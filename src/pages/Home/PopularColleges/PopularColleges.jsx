@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CollegeCard from "../../../Shared/CollegeCard/CollegeCard";
 import Sectiontitle from "../../../components/Sectiontitle/Sectiontitle";
 import useColleges from "../../hooks/useColleges";
@@ -19,9 +20,11 @@ const PopularColleges = () => {
         ))}
       </div>
       <div className="text-center mt-4">
-        <button className="btn btn-sm btn-outline uppercase border-0 border-b-2 mt-4    ">
-          See all colleges
-        </button>
+        <Link to="/colleges">
+          <button className="btn btn-sm btn-outline uppercase border-0 border-b-2 mt-4    ">
+            See all colleges
+          </button>
+        </Link>
       </div>
     </section>
   );

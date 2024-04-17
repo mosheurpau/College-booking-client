@@ -1,7 +1,13 @@
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
+import { useNavigate } from "react-router-dom";
 const CollegeCard = ({ topCollege }) => {
+  const navigate = useNavigate();
+  const navigateToPartsDetail = (_id) => {
+    navigate(`/college/${_id}`);
+  };
   const {
+    _id,
     college_img,
     college_name,
     college_rating,
@@ -23,7 +29,10 @@ const CollegeCard = ({ topCollege }) => {
 
         <p> Number of Research: {research_count}</p>
         <div className="text-center mt-4">
-          <button className="btn btn-sm btn-outline uppercase border-0 border-b-2">
+          <button
+            onClick={() => navigateToPartsDetail(_id)}
+            className="btn btn-sm btn-outline uppercase border-0 border-b-2"
+          >
             view details
           </button>
         </div>
