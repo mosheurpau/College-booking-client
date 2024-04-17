@@ -1,8 +1,13 @@
 import useColleges from "../hooks/useColleges";
 import admissionImg from "../../assets/college-img/admission-bg.jpg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const Admission = () => {
   const [colleges] = useColleges();
+  const navigate = useNavigate();
+  const navigateToAdmissionFrom = (_id) => {
+    navigate(`/admission/${_id}`);
+  };
   return (
     <section>
       <div
@@ -28,14 +33,17 @@ const Admission = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-14">
         {colleges.map((college, index) => (
           <div key={index} className=" border-2 rounded-lg shadow-md p-4">
-            <Link to="/admissionForm">
+            <button
+              onClick={() => navigateToAdmissionFrom(college._id)}
+              className="btn btn-sm btn-outline uppercase border-0 border-b-2"
+            >
               <h3 className="text-lg font-semibold mb-2">
                 {college?.college_name}
               </h3>
               <p className="text-sm text-gray-600 mb-2">
                 By {college?.admission_date}
               </p>
-            </Link>
+            </button>
           </div>
         ))}
       </div>

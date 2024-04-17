@@ -3,7 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import { useNavigate } from "react-router-dom";
 const CollegeCard = ({ topCollege }) => {
   const navigate = useNavigate();
-  const navigateToPartsDetail = (_id) => {
+  const navigateToCollegeDetail = (_id) => {
     navigate(`/college/${_id}`);
   };
   const {
@@ -30,7 +30,7 @@ const CollegeCard = ({ topCollege }) => {
         <p> Number of Research: {research_count}</p>
         <div className="text-center mt-4">
           <button
-            onClick={() => navigateToPartsDetail(_id)}
+            onClick={() => navigateToCollegeDetail(_id)}
             className="btn btn-sm btn-outline uppercase border-0 border-b-2"
           >
             view details

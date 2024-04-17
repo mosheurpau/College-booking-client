@@ -79,9 +79,9 @@ const CollegeDetails = () => {
           Apply online or through Common App Submit high school transcripts &
           test scores Write essays and letters of recommendation{" "}
         </p>
-        <Link to="#">
+        <Link to="/admission">
           <button className="btn btn-outline btn-sm mb-8 border-0 border-b-2 ">
-            Apply
+            Apply Now
           </button>
         </Link>
       </div>

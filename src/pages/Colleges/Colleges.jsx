@@ -20,7 +20,7 @@ const Colleges = () => {
             <h1 className="text-2xl md:text-4xl font-bold border-y-2 py-4 px-4 text-white">
               Comprehensive List of Colleges
             </h1>
-            <p className="mt-5 mx-4 text-white">
+            <p className="mt-5 mx-4 text-white font-bold">
               Explore a Diverse Range of Higher Education Institutions.
             </p>
           </div>

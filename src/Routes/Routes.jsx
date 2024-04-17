@@ -51,8 +51,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
-        path: "admissionForm",
+        path: "admission/:caId",
         element: (
           <PrivateRoute>
             <AdmissionForm></AdmissionForm>
