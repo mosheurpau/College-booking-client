@@ -1,6 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
 
 const CollegeDetails = () => {
@@ -37,7 +37,11 @@ const CollegeDetails = () => {
           </div>
           <div className="card shrink-0 w-full max-w-sm">
             <div className="px-6 py-4">
-              <div className="font-bold text-3xl mb-2">{college_name}</div>
+              <div className="font-bold text-3xl mb-2">
+                <a className="hover:underline hover:text-primary" href="#">
+                  {college_name}
+                </a>
+              </div>
 
               <div className="flex items-center">
                 <p className="me-2"> Rating: </p>
@@ -66,6 +70,20 @@ const CollegeDetails = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="my-4 text-center">
+        <h3 className="text-xl font-bold border-b-2 w-80 pb-2 mx-auto">
+          Admission process
+        </h3>
+        <p className="my-6 px-6">
+          Apply online or through Common App Submit high school transcripts &
+          test scores Write essays and letters of recommendation{" "}
+        </p>
+        <Link to="#">
+          <button className="btn btn-outline btn-sm mb-8 border-0 border-b-2 ">
+            Apply
+          </button>
+        </Link>
       </div>
     </section>
   );
