@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
-import Reset from "../../pages/Reset/Reset";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AdmissionForm = () => {
   const { caId } = useParams();
   const [collegeFormInfo, setCollegeFormInfo] = useState([]);
+  const { _id, college_img, college_name, admission_date } = collegeFormInfo;
   const { user } = useContext(AuthContext);
   console.log(caId);
   useEffect(() => {
@@ -28,12 +29,48 @@ const AdmissionForm = () => {
   const onSubmit = (data) => {
     // Handle form submission here
     console.log(data);
-    Reset();
+    const bookingInfo = {
+      caId: _id,
+      caName: college_name,
+      caImg: college_img,
+      caDate: admission_date,
+      candidateName: data.candidateName,
+      candidateEmail: data.candidateEmail,
+      candidatePhone: data.candidatePhone,
+      address: data.address,
+      dob: data.dob,
+      imageUrl: data.imageUrl,
+    };
+
+    // send to database
+    fetch("http://localhost:5000/bookingCollege", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(bookingInfo),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Booking college added successfully",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Failed to add the college booking",
+          });
+        }
+      });
   };
 
   return (
     <section>
-      <div className="my-28">
+      <div className="mt-28 my-8">
         <Sectiontitle
           heading={collegeFormInfo?.college_name + " Admission Booking"}
         ></Sectiontitle>
