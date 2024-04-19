@@ -5,12 +5,20 @@ const useColleges = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/colleges")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("http://localhost:5000/colleges");
+        const data = await response.json();
         setColleges(data);
+      } catch (error) {
+        console.error("Error fetching colleges:", error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   return [colleges, loading];

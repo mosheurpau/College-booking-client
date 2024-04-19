@@ -4,68 +4,81 @@ import { useParams } from "react-router-dom";
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
+import Loading from "../Loading/Loading";
 
 const AdmissionForm = () => {
   const { caId } = useParams();
-  const [collegeFormInfo, setCollegeFormInfo] = useState([]);
+  const [collegeFormInfo, setCollegeFormInfo] = useState({});
   const { _id, college_img, college_name, admission_date } = collegeFormInfo;
   const { user } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   console.log(caId);
   useEffect(() => {
-    fetch(`http://localhost:5000/college/${caId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCollegeFormInfo(data);
-      });
+    fetchCollegeInfo();
   }, [caId]);
-  console.log(collegeFormInfo);
+
+  const fetchCollegeInfo = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/college/${caId}`);
+      setCollegeFormInfo(response.data);
+    } catch (error) {
+      console.error("Error fetching college info:", error);
+    }
+  };
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    // Handle form submission here
-    console.log(data);
-    const bookingInfo = {
-      caId: _id,
-      caName: college_name,
-      caImg: college_img,
-      caDate: admission_date,
-      candidateName: data.candidateName,
-      candidateEmail: data.candidateEmail,
-      candidatePhone: data.candidatePhone,
-      address: data.address,
-      dob: data.dob,
-      imageUrl: data.imageUrl,
-    };
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    try {
+      const bookingInfo = {
+        caId: _id,
+        caName: college_name,
+        caImg: college_img,
+        caDate: admission_date,
+        candidateName: data.candidateName,
+        candidateEmail: data.candidateEmail,
+        candidatePhone: data.candidatePhone,
+        address: data.address,
+        dob: data.dob,
+        imageUrl: data.imageUrl,
+      };
 
-    // send to database
-    fetch("http://localhost:5000/bookingCollege", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookingInfo),
-    })
-      .then((res) => res.json())
-      .then((inserted) => {
-        if (inserted.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text: "Booking college added successfully",
-          });
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "Failed to add the college booking",
-          });
-        }
+      const response = await axios.post(
+        "http://localhost:5000/bookingCollege",
+        bookingInfo
+      );
+
+      if (response.data.insertedId) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Booking college added successfully",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to add the college booking",
+        });
+      }
+    } catch (error) {
+      console.error("Error adding college booking:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to add the college booking",
       });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -202,6 +215,7 @@ const AdmissionForm = () => {
                 Submit
               </button>
             </div>
+            {isLoading && <Loading></Loading>}
           </form>
         </div>
       </div>

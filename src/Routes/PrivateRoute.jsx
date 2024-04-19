@@ -1,17 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import Loading from "../Shared/Loading/Loading";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
   if (loading) {
-    return (
-      <div className="mx-auto text-center h-96">
-        <progress className="progress w-56 mt-32"></progress>
-      </div>
-    );
+    return <Loading></Loading>;
   }
   if (user) {
     return children;

@@ -1,9 +1,14 @@
 import CollegeCard from "../../Shared/CollegeCard/CollegeCard";
+import Loading from "../../Shared/Loading/Loading";
 import coverImg from "../../assets/college-img/college-bg.jpg";
 import useColleges from "../hooks/useColleges";
 
 const Colleges = () => {
-  const [colleges] = useColleges();
+  const [colleges, loading] = useColleges();
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <section>
