@@ -1,31 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import Loading from "../../Shared/Loading/Loading";
-import { AuthContext } from "../../providers/AuthProvider";
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
+import { Link } from "react-router-dom";
+import useCollegeBookings from "../hooks/useCollegeBookings";
+import Loading from "../../Shared/Loading/Loading";
 
 const MyCollege = () => {
-  const [bookings, setBookings] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `http://localhost:5000/bookingCollege/${user.email}`
-        );
-        setBookings(response.data);
-      } catch (error) {
-        console.error("Error fetching bookings:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [user.email]); // Ensure to include user.email in the dependency array
+  const [bookings, loading] = useCollegeBookings();
 
   if (loading) {
     return <Loading></Loading>;
@@ -57,12 +36,12 @@ const MyCollege = () => {
                         <p className="text-left">
                           Admission Date: {booking.caDate}
                         </p>
-                        <button
-                          // onClick={() => navigateToCollegeDetail(_id)}
-                          className="btn btn-sm btn-outline uppercase border-0 border-b-2"
-                        >
-                          Add Review
-                        </button>
+                        <Link to="/addReview">
+                          {" "}
+                          <button className="btn btn-sm btn-outline uppercase border-0 border-b-2">
+                            Add Review
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

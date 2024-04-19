@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Admission from "../pages/Admission/Admission";
 import AdmissionForm from "../Shared/AdmissionForm/AdmissionForm";
 import MyCollege from "../pages/MyCollege/MyCollege";
+import AddReview from "../Shared/AddReview/AddReview";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyCollege></MyCollege>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "addReview",
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
           </PrivateRoute>
         ),
       },

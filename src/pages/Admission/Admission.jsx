@@ -40,10 +40,10 @@ const Admission = () => {
               <h3 className="text-lg font-semibold mb-2">
                 {college?.college_name}
               </h3>
-              <p className="text-sm text-gray-600 mb-2">
-                By {college?.admission_date}
-              </p>
             </button>
+            <p className="text-sm text-gray-600 mt-2">
+              Admission Date: {college?.admission_date}
+            </p>
           </div>
         ))}
       </div>
