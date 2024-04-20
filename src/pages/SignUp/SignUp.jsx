@@ -4,59 +4,61 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUserProfile, signOut } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    createUser(data.email, data.password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        updateUserProfile(data.name, data.photoURL)
-          .then(() => {
-            console.log("User profile info updated");
-            reset();
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User created successfully.",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            signOut() // remove AuthContext from signOut function
-              .then(() => {
-                navigate("/login");
-              });
-          })
-          .catch((error) => {
-            console.log(error);
-            Swal.fire({
-              position: "top-end",
-              icon: "Failed",
-              title: { error },
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          });
-      })
-      .catch((error) => {
-        console.log(error);
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      const result = await createUser(data.email, data.password);
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+      await updateUserProfile(data.name, data.photoURL);
+
+      console.log("User profile info updated");
+
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        img: data.photoURL,
+      };
+
+      const res = await axiosPublic.post("/users", userInfo);
+
+      if (res.data.insertedId) {
+        reset();
         Swal.fire({
           position: "top-end",
-          icon: "Failed",
-          title: { error },
+          icon: "success",
+          title: "User created successfully. Please login",
           showConfirmButton: false,
           timer: 1500,
         });
+        console.log("User signed up successfully.");
+        navigate(-1); // Go back to previous route
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire({
+        position: "top-end",
+        icon: "Failed",
+        title: "Error occurred",
+        text: error.message || "An error occurred while signing up.",
+        showConfirmButton: false,
+        timer: 1500,
       });
+    }
   };
 
   return (

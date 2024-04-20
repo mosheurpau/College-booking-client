@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -13,6 +13,7 @@ const AdmissionForm = () => {
   const { _id, college_img, college_name, admission_date } = collegeFormInfo;
   const { user } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   console.log(caId);
   useEffect(() => {
     fetchCollegeInfo();
@@ -62,6 +63,7 @@ const AdmissionForm = () => {
           text: "Booking college added successfully",
         });
         reset();
+        navigate("/myCollege");
       } else {
         Swal.fire({
           icon: "error",
