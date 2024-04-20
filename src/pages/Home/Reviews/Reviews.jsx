@@ -31,14 +31,12 @@ const Reviews = () => {
       <Swiper navigation modules={[Navigation]} className="mySwiper">
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
-            console.log(review.rating)
             <div className="flex flex-col items-center mx-24 my-16 text-center">
               <Rating
                 style={{ maxWidth: 180 }}
                 value={review.rating}
                 readOnly
               />
-              <p>ppppppp: {review?.rating}</p>
               <img className="my-6 rounded w-32 h-32" src={review.img} alt="" />
               <p className="mb-4">{review.comment}</p>
               <h2 className="text-lg font-bold">{review.collegeName}</h2>

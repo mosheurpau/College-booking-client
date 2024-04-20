@@ -4,7 +4,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
-
 const SignUp = () => {
   const {
     register,
@@ -12,29 +11,52 @@ const SignUp = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, signOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-          console.log("User profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserProfile(data.name, data.photoURL)
+          .then(() => {
+            console.log("User profile info updated");
+            reset();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            signOut() // remove AuthContext from signOut function
+              .then(() => {
+                navigate("/login");
+              });
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire({
+              position: "top-end",
+              icon: "Failed",
+              title: { error },
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
-          navigate("/");
-        })
-        .catch((error) => console.log(error));
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          position: "top-end",
+          icon: "Failed",
+          title: { error },
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
 
   return (
@@ -142,6 +164,7 @@ const SignUp = () => {
                   value="Sign Up"
                 />
               </div>
+
               <div>
                 <p>
                   <small>

@@ -24,19 +24,44 @@ const NavBar = () => {
         <Link to="/myCollege">My College</Link>
       </li>
 
-      {user ? (
+      {user?.displayName ? (
         <>
+          {" "}
           <li>
-            <button onClick={handleLogOut} className="btn btn-ghost pb-3 m-0">
-              LogOut
-            </button>
+            <details>
+              <summary>Name: {user?.displayName || "Username"} </summary>
+              <ul className="p-2 bg-base-100 rounded-t-none">
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+
+                {user ? (
+                  <>
+                    <li>
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-ghost pb-3 m-0"
+                      >
+                        LogOut
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/login">Login</Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </details>
           </li>
         </>
       ) : (
         <>
           <li>
             <Link to="/login">Login</Link>
-          </li>
+          </li>{" "}
         </>
       )}
     </>
