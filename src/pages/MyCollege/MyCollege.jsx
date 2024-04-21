@@ -48,7 +48,7 @@ const MyCollege = () => {
                 </td>
                 <td className="text-center py-4">
                   <div className="max-w-sm mx-auto">
-                    <div className="card card-compact bg-base-100 shadow-xl">
+                    <div className="card w-96 card-compact bg-base-100 shadow-xl border-2">
                       <div className="hero">
                         <div className="hero-content">
                           <figure>

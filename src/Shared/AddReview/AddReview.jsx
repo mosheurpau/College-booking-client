@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Loading from "../Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 const AddReview = () => {
   const {
@@ -10,6 +11,7 @@ const AddReview = () => {
     handleSubmit,
     reset,
   } = useForm();
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false); // State to track loading
 
@@ -54,6 +56,7 @@ const AddReview = () => {
                   text: "Review added successfully",
                 }).then(() => {
                   reset();
+                  navigate("/");
                 });
               } else {
                 Swal.fire({

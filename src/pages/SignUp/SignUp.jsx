@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -62,11 +63,11 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <section className="mt-24 mb-8">
       <Helmet>
         <title>College Booking | Sign Up</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse mx-auto">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Sign up now!</h1>
@@ -75,7 +76,7 @@ const SignUp = () => {
               your account and start booking college resources.
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -178,10 +179,13 @@ const SignUp = () => {
                 </p>
               </div>
             </form>
+            <div className="mx-8">
+              <SocialLogin></SocialLogin>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
