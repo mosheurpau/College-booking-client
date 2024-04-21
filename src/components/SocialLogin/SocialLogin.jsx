@@ -20,6 +20,7 @@ const SocialLogin = () => {
         img: result.user?.photoURL,
         university: "Your University", // Add university field
         address: "Your Address", // Add address field
+        newEmail: "",
       };
 
       axiosPublic.post("/users", userInfo).then((res) => {

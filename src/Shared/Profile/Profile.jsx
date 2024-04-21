@@ -58,87 +58,123 @@ const Profile = () => {
   return (
     <section className="mt-28 my-8">
       <Sectiontitle heading="Profile details" />
-      <div className="flex justify-center items-center h-full">
+      <div className="flex justify-center items-center h-full mx-auto">
         <div className="max-w-md mx-auto">
           <div className="my-8">
             {loading ? (
               <Loading />
             ) : (
-              <>
-                <div className="max-h-fit">
+              <div className="mx-12 md:mx-16">
+                <div>
                   <img
-                    className="w-full h-auto rounded-full mb-4 mx-auto"
+                    className="min-w-32 max-h-96 rounded-full mb-4 mx-auto"
                     src={editedUser.img}
                     alt="Profile"
                   />
                 </div>
 
-                <p className="text-center">
+                <p className="text-start">
                   <strong>Name:</strong> {editedUser?.name}
                 </p>
-                <p className="text-center my-2">
-                  <strong>Email:</strong> {editedUser?.email}
-                </p>
-                <p className="text-center">
+                {editedUser.newEmail ? ( // Conditionally render based on newEmail
+                  <p className="text-start my-2">
+                    <strong>New Email:</strong> {editedUser?.newEmail}
+                  </p>
+                ) : (
+                  <p className="text-start my-2">
+                    <strong>Email:</strong> {userInfo?.email}
+                  </p>
+                )}
+
+                <p className="text-start">
                   <strong>University:</strong> {editedUser?.university}
                 </p>
-                <p className="text-center my-2">
+                <p className="text-start my-2">
                   <strong>Address:</strong> {editedUser?.address}
                 </p>
                 {editing ? (
-                  <div className="mt-4">
-                    <input
-                      type="text"
-                      value={editedUser.img}
-                      onChange={(e) =>
-                        setEditedUser({ ...editedUser, img: e.target.value })
-                      }
-                      className="input mb-2"
-                      placeholder="Photo URL"
-                    />
-                    <input
-                      type="text"
-                      value={editedUser.name}
-                      onChange={(e) =>
-                        setEditedUser({ ...editedUser, name: e.target.value })
-                      }
-                      className="input mb-2"
-                      placeholder="Display Name"
-                    />
-                    <input
-                      disabled
-                      type="email"
-                      value={editedUser.email}
-                      onChange={(e) =>
-                        setEditedUser({ ...editedUser, email: e.target.value })
-                      }
-                      className="input mb-2"
-                      placeholder="Email"
-                    />
-                    <input
-                      type="text"
-                      value={editedUser.university}
-                      onChange={(e) =>
-                        setEditedUser({
-                          ...editedUser,
-                          university: e.target.value,
-                        })
-                      }
-                      className="input mb-2"
-                      placeholder="University"
-                    />
-                    <input
-                      type="text"
-                      value={editedUser.address}
-                      onChange={(e) =>
-                        setEditedUser({
-                          ...editedUser,
-                          address: e.target.value,
-                        })
-                      }
-                      className="input mb-2"
-                      placeholder="Address"
-                    />
+                  <div className="mt-4 mx-auto">
+                    <label className="form-control w-full max-w-xs mx-auto mt-4">
+                      <div className="label">
+                        <span className="label-text font-b">
+                          Profile imageUrl
+                        </span>
+                      </div>
+                      <input
+                        type="text"
+                        value={editedUser.img}
+                        onChange={(e) =>
+                          setEditedUser({ ...editedUser, img: e.target.value })
+                        }
+                        className="input input-bordered input-info shadow-2xl w-full max-w-xs"
+                        placeholder="Photo URL"
+                      />
+                    </label>
+                    <label className="form-control w-full max-w-xs mx-auto mt-4">
+                      <div className="label">
+                        <span className="label-text font-b">Name</span>
+                      </div>
+                      <input
+                        type="text"
+                        value={editedUser.name}
+                        onChange={(e) =>
+                          setEditedUser({ ...editedUser, name: e.target.value })
+                        }
+                        className="input input-bordered input-info shadow-2xl w-full max-w-xs"
+                        placeholder="Display Name"
+                      />
+                    </label>
+                    <label className="form-control w-full max-w-xs mx-auto mt-4">
+                      <div className="label">
+                        <span className="label-text font-b">New Email</span>
+                      </div>
+                      <input
+                        type="email"
+                        value={editedUser.newEmail}
+                        onChange={(e) =>
+                          setEditedUser({
+                            ...editedUser,
+                            newEmail: e.target.value,
+                          })
+                        }
+                        className="input input-bordered input-info shadow-2xl w-full max-w-xs"
+                        placeholder="Email"
+                      />
+                    </label>
+                    <label className="form-control w-full max-w-xs mx-auto mt-4">
+                      <div className="label">
+                        <span className="label-text font-b">University</span>
+                      </div>
+                      <input
+                        type="text"
+                        value={editedUser.university}
+                        onChange={(e) =>
+                          setEditedUser({
+                            ...editedUser,
+                            university: e.target.value,
+                          })
+                        }
+                        className="input input-bordered input-info shadow-2xl w-full max-w-xs"
+                        placeholder="University"
+                      />
+                    </label>
+                    <label className="form-control w-full max-w-xs mx-auto mt-4">
+                      <div className="label">
+                        <span className="label-text font-b">Address</span>
+                      </div>
+                      <input
+                        type="text"
+                        value={editedUser.address}
+                        onChange={(e) =>
+                          setEditedUser({
+                            ...editedUser,
+                            address: e.target.value,
+                          })
+                        }
+                        className="input input-bordered input-info shadow-2xl w-full max-w-xs"
+                        placeholder="Address"
+                      />
+                    </label>
                     <div className="flex justify-between mt-4">
                       <button
                         className="btn btn-secondary"
@@ -159,7 +195,7 @@ const Profile = () => {
                     Edit
                   </button>
                 )}
-              </>
+              </div>
             )}
           </div>
         </div>
