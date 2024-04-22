@@ -12,6 +12,7 @@ import {
 import { app } from "../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -20,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -41,6 +43,10 @@ const AuthProvider = ({ children }) => {
   const facebookSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, facebookProvider);
+  };
+  const gitHubSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, gitHubProvider);
   };
 
   const resetPass = (email) => {
@@ -72,6 +78,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     googleSignIn,
     facebookSignIn,
+    gitHubSignIn,
     logOut,
     resetPass,
     updateUserProfile,

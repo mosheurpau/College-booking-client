@@ -82,7 +82,7 @@ const Profile = () => {
                   </p>
                 ) : (
                   <p className="text-start my-2">
-                    <strong>Email:</strong> {userInfo?.email}
+                    <strong>Email:</strong> {editedUser?.email}
                   </p>
                 )}
 
