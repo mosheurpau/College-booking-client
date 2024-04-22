@@ -1,14 +1,41 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import useColleges from "../../pages/hooks/useColleges";
+import { FaSearch } from "react-icons/fa";
+import CollegeCard from "../CollegeCard/CollegeCard";
+import logo from "../../assets/college-img/logoCollege1.png";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [colleges] = useColleges();
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
+  // Filter colleges based on search query
+  const filteredColleges = colleges.filter((college) =>
+    college.college_name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const renderCollegeCards = () => {
+    if (searchQuery && filteredColleges.length > 0) {
+      return (
+        <div className="college-cards mt-16 p-4 mb-2 text-center grid grid-cols-1 md:grid-cols-3 gap-4">
+          {filteredColleges.map((college) => (
+            <CollegeCard key={college._id} topCollege={college}></CollegeCard>
+          ))}
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
   const navOptions = (
     <>
       <li>
@@ -66,6 +93,7 @@ const NavBar = () => {
       )}
     </>
   );
+
   return (
     <>
       <div className="navbar max-w-screen-xl fixed top-0 opacity-50 bg-black text-white z-50">
@@ -94,30 +122,33 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">College Booking</a>
+          <Link
+            to="/"
+            className="btn btn-ghost border-0 bg-transparent p-0 text-xl"
+          >
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
+          <div className="flex items-center mx-2">
+            {/* Search field */}
+            <FaSearch></FaSearch>
+            <input
+              type="text"
+              className="-ms-8 bg-transparent ps-9 pe-0 py-2 border-2 rounded-full"
+              placeholder=" Search for a college"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
       </div>
+
+      {/* Render college cards based on search */}
+      {renderCollegeCards()}
     </>
   );
 };
