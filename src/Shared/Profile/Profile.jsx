@@ -68,7 +68,7 @@ const Profile = () => {
                 <div>
                   <img
                     className="min-w-32 max-h-96 rounded-full mb-4 mx-auto"
-                    src={editedUser.img}
+                    src={editedUser?.img}
                     alt="Profile"
                   />
                 </div>
