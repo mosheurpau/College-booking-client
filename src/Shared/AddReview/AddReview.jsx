@@ -2,9 +2,11 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Loading from "../Loading/Loading";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddReview = () => {
+  const { caName } = useParams();
+  // console.log(caName);
   const {
     register,
     formState: { errors },
@@ -112,6 +114,7 @@ const AddReview = () => {
                   message: "College Name is Required",
                 },
               })}
+              defaultValue={caName}
             />
             {errors.collegeName && (
               <span className="label-text-alt text-red-500">

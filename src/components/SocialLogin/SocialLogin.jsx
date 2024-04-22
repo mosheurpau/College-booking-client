@@ -98,7 +98,7 @@ const SocialLogin = () => {
         img: result.additionalUserInfo.avatar_url, // Assuming picture data is available from GitHub
         university: "",
         address: "",
-        newEmail: "", // Make sure to handle newEmail appropriately
+        newEmail: "",
       };
 
       const response = await axiosPublicGitHub.post("/users", userInfo);

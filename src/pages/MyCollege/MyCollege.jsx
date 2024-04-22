@@ -1,10 +1,15 @@
 import Sectiontitle from "../../components/Sectiontitle/Sectiontitle";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useCollegeBookings from "../hooks/useCollegeBookings";
 import Loading from "../../Shared/Loading/Loading";
 
 const MyCollege = () => {
   const [bookings, loading] = useCollegeBookings();
+
+  const navigate = useNavigate();
+  const navigateToAddReview = (caName) => {
+    navigate(`/myCollege/${caName}`);
+  };
 
   if (loading) {
     return <Loading></Loading>;
@@ -36,12 +41,18 @@ const MyCollege = () => {
                         <p className="text-left">
                           Admission Date: {booking.caDate}
                         </p>
-                        <Link to="/addReview">
+                        <button
+                          onClick={() => navigateToAddReview(booking.caName)}
+                          className="btn btn-sm btn-outline uppercase border-0 border-b-2"
+                        >
+                          Add Reveiw
+                        </button>
+                        {/* <Link to="/addReview">
                           {" "}
                           <button className="btn btn-sm btn-outline uppercase border-0 border-b-2">
                             Add Review
                           </button>
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </div>

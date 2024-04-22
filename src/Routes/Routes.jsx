@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "addReview",
+        path: "myCollege/:caName",
         element: (
           <PrivateRoute>
             <AddReview></AddReview>
