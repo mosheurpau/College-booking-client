@@ -127,9 +127,9 @@ const SocialLogin = () => {
   return (
     <div>
       <div className="divider">OR</div>
-      <div className="my-8">
+      <div className="my-4">
         <button
-          className="btn btn-block btn-outline"
+          className="btn btn-block btn-outline font-bold"
           onClick={handleGoogleSignIn}
           disabled={isLoading}
         >
@@ -137,14 +137,14 @@ const SocialLogin = () => {
             <Loading></Loading>
           ) : (
             <>
-              <FaGoogle /> Login with Google
+              <FaGoogle className="text-2xl" /> Login with Google
             </>
           )}
         </button>
       </div>
-      <div className="mb-8">
+      <div className="mb-4">
         <button
-          className="btn btn-block btn-outline"
+          className="btn btn-block btn-outline font-bold"
           onClick={handleFacebookSignIn}
           disabled={isLoading}
         >
@@ -152,14 +152,14 @@ const SocialLogin = () => {
             <Loading></Loading>
           ) : (
             <>
-              <FaFacebook /> Login with Facebook
+              <FaFacebook className="text-2xl" /> Login with Facebook
             </>
           )}
         </button>
       </div>
       <div className="mb-8">
         <button
-          className="btn btn-block btn-outline"
+          className="btn btn-block btn-outline font-bold"
           onClick={handleGitHubSignIn}
           disabled={isLoading}
         >
@@ -167,7 +167,7 @@ const SocialLogin = () => {
             <Loading></Loading>
           ) : (
             <>
-              <FaGithub></FaGithub> Login with GitHub
+              <FaGithub className="text-2xl"></FaGithub> Login with GitHub
             </>
           )}
         </button>

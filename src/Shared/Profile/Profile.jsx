@@ -76,7 +76,7 @@ const Profile = () => {
                 <p className="text-start">
                   <strong>Name:</strong> {editedUser?.name}
                 </p>
-                {editedUser.newEmail ? ( // Conditionally render based on newEmail
+                {editedUser.newEmail.trim() === "" ? ( // Conditionally render based on newEmail
                   <p className="text-start my-2">
                     <strong>Email:</strong> {editedUser?.email}
                   </p>
