@@ -9,7 +9,7 @@ const useColleges = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://college-booking-server-lilac.vercel.app/colleges"
+          "https://college-booking-server-jt9f.onrender.com/colleges"
         );
         const data = await response.json();
         setColleges(data);

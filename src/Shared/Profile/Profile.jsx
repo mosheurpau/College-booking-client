@@ -16,7 +16,7 @@ const Profile = () => {
     const getUserInfo = async () => {
       try {
         const response = await axios.get(
-          `https://college-booking-server-lilac.vercel.app/user/${user.email}`
+          `https://college-booking-server-jt9f.onrender.com/user/${user.email}`
         );
         setUserInfo(response.data[0]);
         setEditedUser(response.data[0]);
@@ -35,7 +35,7 @@ const Profile = () => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `https://college-booking-server-lilac.vercel.app/user/${userInfo._id}`,
+        `https://college-booking-server-jt9f.onrender.com/user/${userInfo._id}`,
         editedUser
       );
       console.log("User profile updated successfully:", response.data);
@@ -78,11 +78,11 @@ const Profile = () => {
                 </p>
                 {editedUser.newEmail ? ( // Conditionally render based on newEmail
                   <p className="text-start my-2">
-                    <strong>New Email:</strong> {editedUser?.newEmail}
+                    <strong>Email:</strong> {editedUser?.email}
                   </p>
                 ) : (
                   <p className="text-start my-2">
-                    <strong>Email:</strong> {editedUser?.email}
+                    <strong>New Email:</strong> {editedUser?.newEmail}
                   </p>
                 )}
 

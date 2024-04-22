@@ -12,7 +12,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://college-booking-server-lilac.vercel.app/reviews")
+    fetch("https://college-booking-server-jt9f.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.reverse());

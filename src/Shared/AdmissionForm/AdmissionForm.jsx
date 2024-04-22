@@ -22,7 +22,7 @@ const AdmissionForm = () => {
   const fetchCollegeInfo = async () => {
     try {
       const response = await axios.get(
-        `https://college-booking-server-lilac.vercel.app/college/${caId}`
+        `https://college-booking-server-jt9f.onrender.com/college/${caId}`
       );
       setCollegeFormInfo(response.data);
     } catch (error) {
@@ -54,7 +54,7 @@ const AdmissionForm = () => {
       };
 
       const response = await axios.post(
-        "https://college-booking-server-lilac.vercel.app/bookingCollege",
+        "https://college-booking-server-jt9f.onrender.com/bookingCollege",
         bookingInfo
       );
 

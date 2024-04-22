@@ -9,7 +9,7 @@ const CollegeDetails = () => {
   console.log(collegeId);
   useEffect(() => {
     fetch(
-      `https://college-booking-server-lilac.vercel.app/college/${collegeId}`
+      `https://college-booking-server-jt9f.onrender.com/college/${collegeId}`
     )
       .then((res) => res.json())
       .then((data) => {

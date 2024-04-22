@@ -41,7 +41,7 @@ const AddReview = () => {
             comment: data.comment,
           };
           // send to your database
-          fetch("https://college-booking-server-lilac.vercel.app/review", {
+          fetch("https://college-booking-server-jt9f.onrender.com/review", {
             method: "POST",
             headers: {
               "content-type": "application/json",
