@@ -21,7 +21,9 @@ const AdmissionForm = () => {
 
   const fetchCollegeInfo = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/college/${caId}`);
+      const response = await axios.get(
+        `https://college-booking-server-lilac.vercel.app/college/${caId}`
+      );
       setCollegeFormInfo(response.data);
     } catch (error) {
       console.error("Error fetching college info:", error);
@@ -52,7 +54,7 @@ const AdmissionForm = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/bookingCollege",
+        "https://college-booking-server-lilac.vercel.app/bookingCollege",
         bookingInfo
       );
 

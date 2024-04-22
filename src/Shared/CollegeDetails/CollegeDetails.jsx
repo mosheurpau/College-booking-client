@@ -8,7 +8,9 @@ const CollegeDetails = () => {
   const [collegeInfo, setCollegeInfo] = useState([]);
   console.log(collegeId);
   useEffect(() => {
-    fetch(`http://localhost:5000/college/${collegeId}`)
+    fetch(
+      `https://college-booking-server-lilac.vercel.app/college/${collegeId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCollegeInfo(data);

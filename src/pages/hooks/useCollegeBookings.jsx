@@ -12,7 +12,7 @@ const useCollegeBookings = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/bookingCollege/${user.email}`
+          `https://college-booking-server-lilac.vercel.app/bookingCollege/${user.email}`
         );
         setBookings(response.data);
       } catch (error) {

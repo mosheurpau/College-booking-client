@@ -16,7 +16,7 @@ const Profile = () => {
     const getUserInfo = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/user/${user.email}`
+          `https://college-booking-server-lilac.vercel.app/user/${user.email}`
         );
         setUserInfo(response.data[0]);
         setEditedUser(response.data[0]);
@@ -35,7 +35,7 @@ const Profile = () => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://localhost:5000/user/${userInfo._id}`,
+        `https://college-booking-server-lilac.vercel.app/user/${userInfo._id}`,
         editedUser
       );
       console.log("User profile updated successfully:", response.data);

@@ -12,6 +12,7 @@ import AdmissionForm from "../Shared/AdmissionForm/AdmissionForm";
 import MyCollege from "../pages/MyCollege/MyCollege";
 import AddReview from "../Shared/AddReview/AddReview";
 import Profile from "../Shared/Profile/Profile";
+import NotFound from "../Shared/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
       },
     ],
   },

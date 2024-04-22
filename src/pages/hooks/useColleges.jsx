@@ -8,7 +8,9 @@ const useColleges = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/colleges");
+        const response = await fetch(
+          "https://college-booking-server-lilac.vercel.app/colleges"
+        );
         const data = await response.json();
         setColleges(data);
       } catch (error) {
