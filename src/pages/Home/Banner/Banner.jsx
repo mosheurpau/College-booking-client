@@ -7,27 +7,29 @@ import img4 from "../../../assets/college-img/4.jpg";
 
 const Banner = () => {
   return (
-    <Carousel
-      autoPlay
-      interval={3000}
-      infiniteLoop
-      showStatus={false}
-      thumbWidth={80}
-      thumbHeight={50}
-    >
-      <div>
-        <img src={img1} alt="Banner 1" />
-      </div>
-      <div>
-        <img src={img3} alt="Banner 2" />
-      </div>
-      <div>
-        <img src={img2} alt="Banner 3" />
-      </div>
-      <div>
-        <img src={img4} alt="Banner 4" />
-      </div>
-    </Carousel>
+    <section className="z-0">
+      <Carousel
+        autoPlay
+        interval={3000}
+        infiniteLoop
+        showStatus={false}
+        thumbWidth={80}
+        thumbHeight={50}
+      >
+        <div>
+          <img src={img1} alt="Banner 1" />
+        </div>
+        <div>
+          <img src={img3} alt="Banner 2" />
+        </div>
+        <div>
+          <img src={img2} alt="Banner 3" />
+        </div>
+        <div>
+          <img src={img4} alt="Banner 4" />
+        </div>
+      </Carousel>
+    </section>
   );
 };
 

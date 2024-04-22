@@ -5,11 +5,14 @@ import useColleges from "../../pages/hooks/useColleges";
 import { FaSearch } from "react-icons/fa";
 import CollegeCard from "../CollegeCard/CollegeCard";
 import logo from "../../assets/college-img/logoCollege1.png";
+import { RxCross1 } from "react-icons/rx";
+import { RiMenu2Fill } from "react-icons/ri";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [colleges] = useColleges();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to manage drawer open/close
 
   const handleLogOut = () => {
     logOut()
@@ -50,104 +53,106 @@ const NavBar = () => {
       <li>
         <Link to="/myCollege">My College</Link>
       </li>
-
-      {user?.displayName ? (
-        <>
-          {" "}
-          <li>
-            <details>
-              <summary>Name: {user?.displayName || "Username"} </summary>
-              <ul className="p-2 bg-base-100 rounded-t-none">
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-
-                {user ? (
-                  <>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          {user?.displayName ? (
+            <>
+              <li className="z-50">
+                <details>
+                  <summary className="p-0">
+                    Name: {user?.displayName || "Username"}{" "}
+                  </summary>
+                  <ul className="bg-base-100 rounded-t-none">
                     <li>
-                      <button
-                        onClick={handleLogOut}
-                        className="btn btn-ghost pb-3 m-0"
-                      >
-                        LogOut
-                      </button>
+                      <Link to="/profile">Profile</Link>
                     </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <Link to="/login">Login</Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </details>
-          </li>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>{" "}
-        </>
-      )}
+
+                    {user ? (
+                      <>
+                        <li>
+                          <button
+                            onClick={handleLogOut}
+                            className="btn btn-ghost pb-3 m-0"
+                          >
+                            LogOut
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          <Link to="/login">Login</Link>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </details>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </>
   );
 
   return (
     <>
-      <div className="navbar max-w-screen-xl fixed top-0 opacity-50 bg-black text-white z-50">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-white"
+      <div className="bg-gray-900 text-white">
+        <nav className="navbar  px-4 py-3 flex items-center justify-between">
+          {/* Drawer toggle for mobile */}
+          <div>
+            <button
+              className="lg:hidden text-white"
+              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             >
-              {navOptions}
-            </ul>
+              <RiMenu2Fill className="text-2xl hover:text-blue-500" />
+            </button>
+            {/* Logo */}
+            <Link to="/" className="text-2xl font-bold ms-4">
+              <img src={logo} alt="Logo" className="h-8" />
+            </Link>
           </div>
-          <Link
-            to="/"
-            className="btn btn-ghost border-0 bg-transparent p-0 text-xl"
-          >
-            <img src={logo} alt="" />
-          </Link>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
-        </div>
-        <div className="navbar-end">
-          <div className="flex items-center mx-2">
-            {/* Search field */}
-            <FaSearch></FaSearch>
-            <input
-              type="text"
-              className="-ms-8 bg-transparent ps-9 pe-0 py-2 border-2 rounded-full"
-              placeholder=" Search for a college"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+
+          {/* Desktop menu */}
+          <ul className="hidden lg:flex space-x-8">{navOptions}</ul>
+
+          {/* Render college cards based on search */}
+          <div className="flex items-center justify-center">
+            <div className="relative">
+              <FaSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                className="pl-10 pr-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:bg-white focus:text-gray-900"
+                placeholder="Search for a college"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
           </div>
-        </div>
+        </nav>
       </div>
 
-      {/* Render college cards based on search */}
+      {/* Sidebar drawer for mobile */}
+      {isDrawerOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+          <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-gray-900 text-white p-8">
+            <button
+              className="absolute top-0 right-0 mt-4 mr-4 text-white"
+              onClick={() => setIsDrawerOpen(false)}
+            >
+              <RxCross1 className="text-2xl hover:text-red-700" />
+            </button>
+            <ul className="space-y-4">{navOptions}</ul>
+          </div>
+        </div>
+      )}
+
       {renderCollegeCards()}
     </>
   );
