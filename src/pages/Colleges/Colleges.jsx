@@ -11,7 +11,7 @@ const Colleges = () => {
   }
 
   return (
-    <section>
+    <section className="mx-2">
       <div
         className="hero min-h-80 pt-24 pb-8 px-8 md:pt-36 md:pb-20 md:px-20"
         style={{

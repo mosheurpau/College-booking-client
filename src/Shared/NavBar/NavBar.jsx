@@ -57,12 +57,12 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">
           {user?.displayName ? (
             <>
-              <li className="z-50">
+              <li className="z-50 bg-gray-900">
                 <details>
                   <summary className="p-0">
                     Name: {user?.displayName || "Username"}{" "}
                   </summary>
-                  <ul className="bg-base-100 rounded-t-none">
+                  <ul className="bg-gray-900 rounded-t-none ">
                     <li>
                       <Link to="/profile">Profile</Link>
                     </li>
