@@ -15,8 +15,12 @@ const CollegeCard = ({ topCollege }) => {
     research_count,
   } = topCollege;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto">
-      <img src={college_img} alt="college img" />
+    <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto hover:shadow-2xl hover:-translate-y-4 hover:duration-500">
+      <img
+        className="hover:scale-110 hover:duration-1000"
+        src={college_img}
+        alt="college img"
+      />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{college_name}</div>
 

@@ -30,7 +30,7 @@ const Admission = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-14 mx-2 ">
         {colleges.map((college, index) => (
           <div key={index} className=" border-2 rounded-lg shadow-md p-4">
             <button

@@ -28,7 +28,7 @@ const NavBar = () => {
   const renderCollegeCards = () => {
     if (searchQuery && filteredColleges.length > 0) {
       return (
-        <div className="college-cards mt-16 p-4 mb-2 text-center grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="college-cards mt-16 p-4 mb-2 grid grid-cols-1 md:grid-cols-3 gap-4">
           {filteredColleges.map((college) => (
             <CollegeCard key={college._id} topCollege={college}></CollegeCard>
           ))}
