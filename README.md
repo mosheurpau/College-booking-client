@@ -43,5 +43,5 @@ Check out the live application [here](https://e-college-booking.web.app/).
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/e-college-booking.git
+   git clone https://github.com/mosheurpau/College-booking-client.git
    ```
